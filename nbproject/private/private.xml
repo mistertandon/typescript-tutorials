@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/typescript/01_basic_types/script.js</file>
-            <file>file:/var/www/typescript/01_basic_types/index.html</file>
-            <file>file:/var/www/typescript/01_basic_types/script.ts</file>
+            <file>file:/var/www/typescript/08_module_export/module_import.ts</file>
+            <file>file:/var/www/typescript/08_module_export/module_export.ts</file>
+            <file>file:/var/www/typescript/09_namespaces_function_1/index.html</file>
+            <file>file:/var/www/typescript/09_namespaces_function_1/script.js</file>
+            <file>file:/var/www/typescript/08_module_export/module_import.js</file>
+            <file>file:/var/www/typescript/08_module_export/module_export.js</file>
+            <file>file:/var/www/typescript/09_namespaces_function_1/script.ts</file>
         </group>
     </open-files>
 </project-private>

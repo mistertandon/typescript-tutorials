@@ -1,0 +1,16 @@
+{
+  "name": "12_dmytro_danylov",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ts-node": "^10.4.0",
+    "tsc": "^2.0.4"
+  }
+}

@@ -7,7 +7,7 @@ type SomeType = string;
 
 type MyConditionType = SomeType extends string ? string : null;
 
-function someFunction<T>(someArg: T) {
+function someFunctionA<T>(someArg: T) {
   type CustomType = T extends "TYPE A"
     ? "TYPE A"
     : T extends "TYPE B"
@@ -16,21 +16,23 @@ function someFunction<T>(someArg: T) {
     ? "TYPE C"
     : "TYPE D";
 
-  const someOtherFunction = (
+  const someOtherFunctionA = (
     someOtherArg: T extends boolean ? "TYPE A" : "TYPE B"
   ) => {
     const localVar: "TYPE A" | "TYPE B" = someOtherArg;
   };
 
-  return someOtherFunction;
+  return someOtherFunctionA;
 }
 
-const result_A = someFunction(true);
+const result_A = someFunctionA(true);
 /**
  * Upon compilation answer would be
  *
  * const result_A: (someOtherArg: "TYPE A") => void
  */
+
+//=================== New Example ===================
 
 type StringOrNot<T> = T extends string ? string : never;
 
@@ -40,10 +42,10 @@ type AUnion = string | boolean | never;
  * type AUnion = string | boolean
  */
 
-type ResultType = Exclude<"a" | "b" | "c", "a" | "b">;
-/**
+//=================== New Example ===================
+/*
  * Upon compilation answer would be
- * type ResultType = "c"
+ * type ResultType_A = "c"
  *
  * How TypeScript would inference result
  * "a" extends "a" | "b" ? never: "a" => never
@@ -51,11 +53,20 @@ type ResultType = Exclude<"a" | "b" | "c", "a" | "b">;
  * "c" extends "a" | "b" ? never: "c" => "c"
  *
  * Therefore, answer would be
- * type ResultType = "c"
+ * type ResultType_A = "c"
  */
+type ResultType_A = Exclude<"a" | "b" | "c", "a" | "b">;
 
+//=================== New Example ===================
+
+/**
+ * Upon compilation answer would be
+ * type Inferred_A = "Parvesh"
+ */
 type InferredSomething_A<T> = T extends infer U ? U : any;
 type Inferred_A = InferredSomething_A<"Parvesh">;
+
+//=================== New Example ===================
 
 type InferredSomething_B<T> = T extends { a: infer A; b: infer B }
   ? A & B
@@ -76,9 +87,21 @@ type Inferred_B = InferredSomething_B<{
  *   }
  */
 
+//=================== New Example ===================
+
 type MyFunctionReturnValue = ReturnType<() => true>;
 /**
  * Upon compilation answer would be
  *
  * type MyFunctionReturnValue = true
  */
+
+//=================== New Example ===================
+
+/**
+ * Upon compilation answer would be
+ *
+ * type MyResult_A = string | number
+ */
+type MyType_A<T> = T extends string | number ? T : never;
+type MyResult_A = MyType_A<string | number | boolean>;

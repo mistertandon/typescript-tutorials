@@ -59,13 +59,6 @@ type ResultType_A = Exclude<"a" | "b" | "c", "a" | "b">;
 
 //=================== New Example ===================
 
-/**
- * Upon compilation answer would be
- * type Inferred_A = "Parvesh"
- */
-type InferredSomething_A<T> = T extends infer U ? U : any;
-type Inferred_A = InferredSomething_A<"Parvesh">;
-
 //=================== New Example ===================
 
 type InferredSomething_B<T> = T extends { a: infer A; b: infer B }
@@ -105,3 +98,56 @@ type MyFunctionReturnValue = ReturnType<() => true>;
  */
 type MyType_A<T> = T extends string | number ? T : never;
 type MyResult_A = MyType_A<string | number | boolean>;
+
+//=================== New Example ===================
+/**
+ * Upon compilation answer would be
+ *
+ * type MyResult_B = string | number
+ */
+type MyType_B<T> = (() => T) extends () => string | number ? T : never;
+type MyResult_B = MyType_B<string | number | boolean>;
+
+//=================== New Example ===================
+/**
+ * Upon compilation answer would be
+ * type Inferred_A = "Parvesh"
+ */
+type InferredSomething_A<T> = T extends infer U ? U : any;
+type Inferred_A = InferredSomething_A<"Parvesh">;
+
+/**
+ * Upon compilation answer would be
+ *
+ * type Inferred_C = {
+ *     somePropA: number;
+ * } & {
+ *     somePropB: string;
+ * }
+ */
+type InferredSomething_C<T> = T extends { a: infer A; b: infer B }
+  ? A & B
+  : any;
+type Inferred_C = InferredSomething_C<{
+  a: { somePropA: number };
+  b: { somePropB: string };
+}>;
+
+//=================== New Example ===================
+/**
+ * Upon compilation answer would be
+ * type userType = {
+ *   name: string;
+ *   age: number;
+ *   city: string;
+ * }
+ */
+function createUser(name: string, age: number, city: string) {
+  return {
+    name: "User A",
+    age: 25,
+    city: "Delhi",
+  };
+}
+
+type userType = ReturnType<typeof createUser>;

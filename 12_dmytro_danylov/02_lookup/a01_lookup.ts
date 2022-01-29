@@ -63,3 +63,37 @@ function getPropertyValue<T, k extends keyof T>(objRef: T, key: k) {
 }
 
 let resA = getPropertyValue({ propAKey: "propAValue" }, "propAKey");
+
+//========== 5.1
+
+type MouseEvent = {
+  x: number;
+  y: number;
+};
+
+type KeyboardEvent = {
+  key: string;
+};
+
+type EventTypes = {
+  click: MouseEvent;
+  keypress: KeyboardEvent;
+};
+
+type EventTypesUnion = EventTypes[keyof EventTypes];
+
+function handleEvent<K extends keyof EventTypes>(
+  eventName: K,
+  callBack: (e: EventTypes[keyof EventTypes]) => void
+) {
+  if (eventName === "click") {
+    callBack({ x: 12, y: 21 });
+  }
+
+  if (eventName === "keypress") {
+    callBack({ key: "ENTER" });
+  }
+}
+
+document.addEventListener("click", () => {});
+document.addEventListener("keypress", () => {});

@@ -17,7 +17,7 @@ namespace OmitNs {
   /**
       Upon compilation answer would be
   
-      type Criket = {
+      type Cricket = {
           Bat: string;
           Ball: string;
           Stumps: string;

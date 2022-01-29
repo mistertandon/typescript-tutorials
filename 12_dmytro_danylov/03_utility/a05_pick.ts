@@ -17,17 +17,17 @@ namespace PickNs {
   /**
     Upon compilation answer would be
 
-    type Criket = {
+    type Cricket = {
         Bat: string;
         Ball: string;
         Stumps: string;
     }
    */
-  type Criket = Pick<SportsAccessories, "Bat" | "Ball" | "Stumps">;
+  type Cricket = Pick<SportsAccessories, "Bat" | "Ball" | "Stumps">;
 
   /**
     Upon compilation answer would be 
-    
+
     type Hockey = {
         HockeyStick: string;
         HockeyBall: string;

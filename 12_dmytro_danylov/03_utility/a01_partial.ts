@@ -7,7 +7,8 @@ namespace PartialNS {
     enableHyperjump: boolean;
   }
   /**
-   * 1.1 - Partial<Type>
+   * Partial<Type>
+   * -------------------
    * Constructs a type with all properties of Type set to optional.
    */
 
